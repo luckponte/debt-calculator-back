@@ -5,7 +5,7 @@ namespace debt_calculator_api.Models
     public class Debts
     {
         [Key]
-        public int id { get; set; }
+        public int debtId { get; set; }
 
         [Required(ErrorMessage="Campo obrigatório")]
         public long deadlineDate { get; set; }
@@ -19,5 +19,8 @@ namespace debt_calculator_api.Models
         public string phone {get; set;}
 
         public Configs Configs { get; set; }
+
+        public int userId { get; set; }
+        public Users User { get; set; }
     }
 }
