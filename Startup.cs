@@ -25,9 +25,19 @@ namespace debt_calculator_api
 
         public IConfiguration Configuration { get; }
 
+        readonly string MyAllowSpecificOrigins = "*";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                    builder =>
+                    {
+                        builder.WithOrigins("*");
+                    });
+            });
             services.AddDbContext<DataContext>(opt =>
                opt.UseInMemoryDatabase("DebtData"));
             services.AddScoped<DataContext, DataContext>();
@@ -47,6 +57,8 @@ namespace debt_calculator_api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseEndpoints(endpoints =>
             {
