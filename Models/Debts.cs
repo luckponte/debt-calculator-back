@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace debt_calculator_api.Models
 {
-    public class Debt : Config
+    public class Debts
     {
         [Key]
         public int id { get; set; }
@@ -17,5 +17,7 @@ namespace debt_calculator_api.Models
         public double finalValue { get; set; }
         [Required(ErrorMessage="Campo obrigatório")]
         public string phone {get; set;}
+
+        public Configs Configs { get; set; }
     }
 }

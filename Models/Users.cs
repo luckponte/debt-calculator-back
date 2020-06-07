@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace debt_calculator_api.Models
 {
-    public class User
+    public class Users
     {
         [Key]
         public int id { get; set; }

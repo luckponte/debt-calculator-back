@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace debt_calculator_api.Models
 {
-    public class Config
+    public class Configs
     {
         [Required(ErrorMessage="Campo obrigatório")]
         public int maxParcels { get; set; }
