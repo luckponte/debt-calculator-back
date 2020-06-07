@@ -13,5 +13,10 @@ namespace debt_calculator_api.Data
         public DbSet<Configs> Configs { get; set; }
         public DbSet<Debts> Debts { get; set; }
         public DbSet<Users> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Configs>().HasData(new Configs(){ id = 1, maxParcels = 3, interestRate = 0.2, comission = .1});
+        }
     }
 }

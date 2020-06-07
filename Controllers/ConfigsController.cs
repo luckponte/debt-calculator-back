@@ -18,6 +18,7 @@ namespace debt_calculator_api.Controllers
 
         public ConfigsController(DataContext context)
         {
+            bool v = context.Database.EnsureCreated();
             _context = context;
         }
 
@@ -83,7 +84,7 @@ namespace debt_calculator_api.Controllers
             _context.Configs.Add(configs);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetConfigs", new { id = configs.id }, configs);
+            return CreatedAtAction(nameof(GetConfigs), new { id = configs.id }, configs);
         }
 
         // DELETE: api/Configs/5
