@@ -30,6 +30,7 @@ namespace debt_calculator_api
         {
             services.AddDbContext<DataContext>(opt =>
                opt.UseInMemoryDatabase("DebtData"));
+            services.AddScoped<DataContext, DataContext>();
             services.AddControllers();
         }
 
