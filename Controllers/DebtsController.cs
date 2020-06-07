@@ -56,7 +56,7 @@ namespace debt_calculator_api.Controllers
                     delay = 0;
                 }
 
-                debt.interestValue = (1 + conf.interestRate) * ( delay/86400000 );
+                debt.interestValue = (conf.interestRate) * ( delay/86400000) * debt.debtValue;
                 debt.finalValue = debt.interestValue + debt.debtValue;
             }
 
