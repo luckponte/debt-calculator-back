@@ -22,18 +22,11 @@ namespace debt_calculator_api.Controllers
             _context = context;
         }
 
-        // GET: api/Debts
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Debts>>> GetDebts()
-        {
-            return await _context.Debts.ToListAsync();
-        }
-
         // GET: api/Debts/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Debts>> GetDebts(int id)
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<IEnumerable<Debts>>> GetDebts(int userId)
         {
-            var debts = await _context.Debts.FindAsync(id);
+            var debts = await _context.Debts.Where(d=> d.userId == userId).ToListAsync();
 
             if (debts == null)
             {
