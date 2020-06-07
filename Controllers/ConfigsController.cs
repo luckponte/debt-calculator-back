@@ -49,7 +49,7 @@ namespace debt_calculator_api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutConfigs(int id, Configs configs)
         {
-            if (id != configs.id)
+            if (id != configs.configId)
             {
                 return BadRequest();
             }
@@ -84,7 +84,7 @@ namespace debt_calculator_api.Controllers
             _context.Configs.Add(configs);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetConfigs), new { id = configs.id }, configs);
+            return CreatedAtAction(nameof(GetConfigs), new { id = configs.configId }, configs);
         }
 
         // DELETE: api/Configs/5
@@ -105,7 +105,7 @@ namespace debt_calculator_api.Controllers
 
         private bool ConfigsExists(int id)
         {
-            return _context.Configs.Any(e => e.id == id);
+            return _context.Configs.Any(e => e.configId == id);
         }
     }
 }

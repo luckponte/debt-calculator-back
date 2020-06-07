@@ -16,7 +16,7 @@ namespace debt_calculator_api.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Configs>().HasData(new Configs(){ id = 1, maxParcels = 3, interestRate = 0.2, comission = .1});
+            modelBuilder.Entity<Configs>().HasData(new Configs(){ configId = 1, maxParcels = 3, interestRate = 0.2, comission = .1});
         }
     }
 }

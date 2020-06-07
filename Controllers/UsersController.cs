@@ -48,7 +48,7 @@ namespace debt_calculator_api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUsers(int id, Users users)
         {
-            if (id != users.id)
+            if (id != users.userId)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace debt_calculator_api.Controllers
             _context.Users.Add(users);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUsers", new { id = users.id }, users);
+            return CreatedAtAction("GetUsers", new { id = users.userId }, users);
         }
 
         // DELETE: api/Users/5
@@ -104,7 +104,7 @@ namespace debt_calculator_api.Controllers
 
         private bool UsersExists(int id)
         {
-            return _context.Users.Any(e => e.id == id);
+            return _context.Users.Any(e => e.userId == id);
         }
     }
 }
