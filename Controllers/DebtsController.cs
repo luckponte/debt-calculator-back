@@ -18,6 +18,7 @@ namespace debt_calculator_api.Controllers
 
         public DebtsController(DataContext context)
         {
+            bool v = context.Database.EnsureCreated();
             _context = context;
         }
 

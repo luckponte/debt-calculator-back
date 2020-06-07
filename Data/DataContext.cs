@@ -17,7 +17,8 @@ namespace debt_calculator_api.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Seed do "banco" gerando usuários e configuraçõies iniciais
+            // Seed do "banco"
+            // Cria configurações iniciais
             modelBuilder.Entity<Configs>()
             .HasData(new Configs()
                 { 
@@ -28,21 +29,62 @@ namespace debt_calculator_api.Data
                 }
             );
 
-            modelBuilder.Entity<Users>().HasData(new Users(){
-                userId = 1,
-                email = "test.user@paschoalotto.com",
-                passwd = EncryptionService.PBKDF2Hash("123Mudar"),
-                isAdmin = false,
-                fullName = "Usuário de Teste"
-            });
+            // Cria usuários
+            modelBuilder.Entity<Users>()
+            .HasData(new Users()
+                {
+                    userId = 1,
+                    email = "test.user@paschoalotto.com",
+                    passwd = EncryptionService.PBKDF2Hash("123Mudar"),
+                    isAdmin = false,
+                    fullName = "Usuário de Teste"
+                }
+            );
 
-            modelBuilder.Entity<Users>().HasData(new Users(){
-                userId = 2,
-                email = "test.admin@paschoalotto.com",
-                passwd = EncryptionService.PBKDF2Hash("321Mudar"),
-                isAdmin = true,
-                fullName = "Admin de Teste"
-            });
+            modelBuilder.Entity<Users>()
+            .HasData(new Users()
+                {
+                    userId = 2,
+                    email = "test.admin@paschoalotto.com",
+                    passwd = EncryptionService.PBKDF2Hash("321Mudar"),
+                    isAdmin = true,
+                    fullName = "Admin de Teste"
+                }
+            );
+
+            // Cria Dívidas
+            modelBuilder.Entity<Debts>()
+            .HasData(new Debts()
+                {
+                    debtId = 1,
+                    debtValue = 1000.00,
+                    deadlineDate = 1591476827000,
+                    userId = 1,
+                    phone = "(14) 3225-8554"
+                }
+            );
+
+            modelBuilder.Entity<Debts>()
+            .HasData(new Debts()
+                {
+                    debtId = 2,
+                    debtValue = 2200.00,
+                    deadlineDate = 1592254427000,
+                    userId = 1,
+                    phone = "(14) 3225-8554"
+                }
+            );
+            
+            modelBuilder.Entity<Debts>()
+            .HasData(new Debts()
+                {
+                    debtId = 3,
+                    debtValue = 3500.00,
+                    deadlineDate = 1596142427000,
+                    userId = 1,
+                    phone = "(14) 3225-8554"
+                }
+            );
         }
     }
 }
