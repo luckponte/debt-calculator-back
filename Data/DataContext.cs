@@ -10,8 +10,8 @@ namespace debt_calculator_api.Data
         {
         }
 
-        public DbSet<Configs> Config { get; set; }
-        public DbSet<Debts> Debt { get; set; }
-        public DbSet<Users> User { get; set; }
+        public DbSet<Configs> Configs { get; set; }
+        public DbSet<Debts> Debts { get; set; }
+        public DbSet<Users> Users { get; set; }
     }
 }
