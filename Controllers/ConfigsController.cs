@@ -22,6 +22,20 @@ namespace debt_calculator_api.Controllers
             _context = context;
         }
 
+        // OPTIONS: api/TodoItems2/5
+        [HttpOptions("{id}")]
+        public IActionResult PreflightRoute(int id)
+        {
+            return NoContent();
+        }
+
+        // OPTIONS: api/TodoItems2 
+        [HttpOptions]
+        public IActionResult PreflightRoute()
+        {
+            return NoContent();
+        }
+
         // GET: api/Configs
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Configs>>> GetConfigs()
